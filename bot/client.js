@@ -7,8 +7,8 @@ function createBot() {
   venom
     .create({
       session: 'bot-wa',
-      headless: false,
-      useChrome: true,
+      headless: 'new',
+      useChrome: false,
       timeout: 60000,
       args: [
         '--disable-gpu',
