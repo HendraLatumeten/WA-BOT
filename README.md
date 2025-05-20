@@ -34,7 +34,7 @@ A WhatsApp bot built with Node.js using [venom-bot](https://github.com/orkestral
 ### 1. Clone the Project
 
 ```bash
-git clone https://github.com/namakamu/wa-venom-bot.git
+git clone https://github.com/Hendra-Ikon/wa-bot.git
 cd wa-bot
 ```
 
@@ -44,6 +44,9 @@ cd wa-bot
 npm install
 ```
 
+```bash
+npm run install-deps
+```
 ### 3. Check Node.js and npm Versions
 
 ```bash
@@ -107,29 +110,31 @@ pm2 start app.js --name wa-bot
 
 ### 3. Check bot status:
 
-```bash
-pm2 status
-```
-
 ### 4. Show logs:
 
 ```bash
 pm2 logs wa-bot
 ```
 
-### 5. Restart the bot:
+### 5. QR scanning in log pm2
+
+```bash
+pm2 status
+```
+
+### 6. Restart the bot:
 
 ```bash
 pm2 restart wa-bot
 ```
 
-### 6. Stop the bot:
+### 7. Stop the bot:
 
 ```bash
 pm2 stop wa-bot
 ```
 
-### 7. Remove the bot from PM2:
+### 8. Remove the bot from PM2:
 
 ```bash
 pm2 delete wa-bot
