@@ -27,11 +27,6 @@ async function getProductByCode(kodeBarang) {
       return null;
     }
 
-    console.log('Data produk dari Google Sheets:');
-    // rows.forEach((row, i) =>
-    //   console.log(`Baris ${i + 2}: KODE=${row[0]}, HARGA=${row[6]}`)
-    // );
-
     for (const row of rows) {
       if (row[0] && row[0].toLowerCase() === kodeBarang.toLowerCase()) {
         return {
@@ -48,4 +43,30 @@ async function getProductByCode(kodeBarang) {
   }
 }
 
-module.exports = { getProductByCode };
+async function getAllSellers() {
+  try {
+    const response = await sheets.spreadsheets.values.get({
+      spreadsheetId: SPREADSHEET_ID,
+      range: 'Cloter1_Selling!J2:J', // Kolom J dari baris 2 ke bawah
+    });
+
+    const rows = response.data.values;
+
+    if (!rows || rows.length === 0) {
+      console.log('Data seller kosong.');
+      return [];
+    }
+
+    const sellers = rows.map(row => ({ name: row[0] })).filter(s => s.name);
+
+    console.log('Sellers:', sellers); // Opsional, untuk debug
+
+    return sellers;
+  } catch (error) {
+    console.error('Error getting sellers from Google Sheets:', error);
+    return [];
+  }
+}
+
+
+module.exports = { getProductByCode, getAllSellers };
