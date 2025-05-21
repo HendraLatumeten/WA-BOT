@@ -28,9 +28,9 @@ async function getProductByCode(kodeBarang) {
     }
 
     console.log('Data produk dari Google Sheets:');
-    rows.forEach((row, i) =>
-      console.log(`Baris ${i + 2}: KODE=${row[0]}, HARGA=${row[6]}`)
-    );
+    // rows.forEach((row, i) =>
+    //   console.log(`Baris ${i + 2}: KODE=${row[0]}, HARGA=${row[6]}`)
+    // );
 
     for (const row of rows) {
       if (row[0] && row[0].toLowerCase() === kodeBarang.toLowerCase()) {
